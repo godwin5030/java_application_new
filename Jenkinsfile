@@ -7,9 +7,10 @@ pipeline {
    stages {
         stage('Build') {
            
-                 echo ${params.region}
                     
             steps {
+               
+                 echo ${params.region}
                 echo 'Building..'
                  sh 'mvn package'
                  script {
