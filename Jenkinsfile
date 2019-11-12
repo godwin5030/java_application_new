@@ -8,9 +8,7 @@ pipeline {
         stage('Build') {
            
            echo "You choose: ${region}"
-            agent { 
-                label 'echo ${region}'
-            }
+         
                     
             steps {
                 echo 'Building..'
