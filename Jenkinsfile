@@ -10,7 +10,7 @@ pipeline {
                     
             steps {
                
-                 echo ${params.region}
+                 echo "${params.region}"
                 echo 'Building..'
                  sh 'mvn package'
                  script {
