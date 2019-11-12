@@ -7,10 +7,7 @@ pipeline {
    stages {
         stage('Build') {
            
-            agent { 
-                label  String.valueOf(region)
-            }
-           
+                    
             steps {
                 echo 'Building..'
                  sh 'mvn package'
