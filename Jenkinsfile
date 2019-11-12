@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
            
             agent { 
-                label ${region}
+                label '${region}'
             }
                     
             steps {
