@@ -7,8 +7,7 @@ pipeline {
    stages {
         stage('Build') {
            
-           echo "You choose: ${region}"
-         
+                 echo ${params.region}
                     
             steps {
                 echo 'Building..'
