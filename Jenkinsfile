@@ -4,14 +4,15 @@ pipeline {
         choice(choices: ['master', 'docker'], description: 'What AWS region?', name: 'region')
     }
    
-   agent { 
-               label "${params.region}"
-            }
-  
+ 
    
    stages {
         stage('Build') {
            
+             agent { 
+               label "${params.region}"
+            }
+  
                             
             steps {
                
