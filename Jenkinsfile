@@ -7,7 +7,7 @@ pipeline {
    stages {
         stage('Build') {
            
-                    
+           agent label "${params.region}"                    
             steps {
                
                  echo "${params.region}"
