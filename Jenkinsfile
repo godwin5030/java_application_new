@@ -1,11 +1,15 @@
 pipeline {
    agent any
    parameters {
-        choice(choices: ['dev', 'prod'], description: 'What AWS region?', name: 'region')
+        choice(choices: ['master', 'docker'], description: 'What AWS region?', name: 'region')
     }
    
    stages {
         stage('Build') {
+           
+            agent { 
+                label  String.valueOf(region)
+            }
            
             steps {
                 echo 'Building..'
