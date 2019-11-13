@@ -64,7 +64,7 @@
 
 <!-- Organization and project keys are displayed in the right sidebar of the project homepage -->
 
-<sonar.organization>godwin</sonar.organization>
+<sonar.organization>honeysundar-github</sonar.organization>
 
 <sonar.login>32b45134085c9f8f05f9d417c6700aebc1ed291f</sonar.login> 
 
