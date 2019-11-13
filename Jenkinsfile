@@ -1,42 +1,18 @@
 pipeline {
-   agent any
-   parameters {
-        choice(choices: ['master', 'docker'], description: 'What AWS region?', name: 'region')
+    agent any
+    stages {
+        stage('Build') { 
+             steps {
+                sh 'mvn clean package'
+        }
+        }
+        stage('SonarQube analysis') { 
+             steps {
+                withSonarQubeEnv('sonar') { 
+                sh 'mvn sonar:sonar'
+                }
+        }
+        }
+        }
+        
     }
-   
- 
-   
-   stages {
-        stage('Build') {
-           
-             agent { 
-               label "${params.region}"
-            }
-  
-                            
-            steps {
-               
-                 echo "${params.region}"
-                echo 'Building..'
-                 sh 'mvn package'
-                 script {
-              timeout(time: 10, unit: 'MINUTES') {
-                input(id: "Deploy Gate", message: "Deploy ${params.project_name}?", ok: 'Deploy')
-              }
-            }
-        }
-        }
-   
-        stage('Deploy') {
-           
-            steps {
-                
-                sh 'sudo apt update -y'
-                sh 'sudo apt install tomcat8 -y'
-                sh 'sudo apt install tomcat8-admin -y'
-                sh 'sudo apt install tomcat8-user -y'             
-                sh 'sudo service tomcat8 restart'
-            }
-        }
-    }
-}
