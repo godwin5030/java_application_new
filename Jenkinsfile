@@ -44,7 +44,7 @@ pipeline {
 
                 "pattern": "target/*.war",
 
-                "target": "java_app/"
+                "target": "java_godwin/"
 
                 }
 
