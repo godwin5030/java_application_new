@@ -48,7 +48,7 @@
 
 		<springframework.version>4.3.1.RELEASE</springframework.version>
 
-		<jackson.version>2.7.5</jackson.version>
+		<jackson.version>2.9.10.8</jackson.version>
 
 		
 
